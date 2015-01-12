@@ -5,6 +5,8 @@ import java.util.*;
 
 public class Person implements Comparable<Person> {
 
+  private static int instanceCount = 0;
+
   private int age;
   private String name;
   private double salary;
@@ -28,6 +30,8 @@ public class Person implements Comparable<Person> {
     this.name = name;
     this.age = age;
     this.salary = salary;
+    this.ssn = "";
+    this.instanceCount++;
   }
 
   public boolean getPropertyChangeFired() {
@@ -212,5 +216,9 @@ public class Person implements Comparable<Person> {
     list.add(new Person("Michael", 22, 10000));
     list.add(new Person("Matthew", 15, 0));
     return list;
+  }
+
+  public static int count() {
+    return instanceCount;
   }
 }
